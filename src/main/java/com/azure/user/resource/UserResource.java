@@ -20,9 +20,9 @@ public class UserResource {
         return new ResponseEntity<>(userService.create(user), HttpStatus.CREATED);
     }
 
-    @GetMapping
+    @GetMapping("/{email}")
     public ResponseEntity<User> getAll(
-            @RequestParam(name="email") String email
+            @PathVariable(name="email") String email
     ){
         return new ResponseEntity<>(userService.getByEmail(email), HttpStatus.OK);
     }
