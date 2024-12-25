@@ -2,7 +2,7 @@ services:
 
   azure-demo:
     container_name: azure-demo
-    image: azure-demo:1.0.0
+    image: rupesh1997/azure-demo:1.0.0
     ports:
       - 8888:8888
     volumes:
