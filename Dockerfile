@@ -16,7 +16,7 @@ ARG APP_VERSION=1.0.0
 WORKDIR /app
 COPY --from=build /build/target/azure-demo-*.jar /app/
 
-EXPOSE 9091
+EXPOSE 8888
 
 ENV DB_URL=jdbc:postgresql://postgres:5432/azure_demo_db
 ENV ACTIVE_PROFILE=${PROFILE}
