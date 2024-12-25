@@ -1,0 +1,21 @@
+services:
+
+  azure-demo:
+    container_name: azure-demo
+    image: azure-demo:1.0.0
+    ports:
+      - 8888:8888
+    volumes:
+      - azure-demo-storage:/app/uploads
+    networks:
+      - custom-network
+
+networks:
+  custom-network:
+    driver: bridge
+
+volumes:
+  postgres:
+    driver: local
+  azure-demo-storage:
+    driver: local
