@@ -1,5 +1,21 @@
 services:
 
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: azure_demo_db
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - 5432:5432
+    networks:
+      - custom-network
+    restart: unless-stopped
+
   azure-demo:
     container_name: azure-demo
     image: rupesh1997/azure-demo:1.0.0
@@ -9,6 +25,8 @@ services:
       - azure-demo-storage:/app/uploads
     networks:
       - custom-network
+    depends_on:
+      - postgres
 
 networks:
   custom-network:
